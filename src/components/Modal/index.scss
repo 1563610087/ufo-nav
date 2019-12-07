@@ -1,0 +1,19 @@
+.modal {
+  width: 360px;
+  border:1px solid red;
+  .title {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    font-size: 18px;
+  }
+  .content {
+    padding: 20px 0;
+    text-align: center;
+  }
+  .bottom {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+}

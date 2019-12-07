@@ -1,0 +1,37 @@
+{
+  "id": "1539346",
+  "name": "我的导航",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "2275399",
+      "name": "google",
+      "font_class": "google",
+      "unicode": "e82b",
+      "unicode_decimal": 59435
+    },
+    {
+      "icon_id": "3056940",
+      "name": "百度",
+      "font_class": "baidu",
+      "unicode": "e7a1",
+      "unicode_decimal": 59297
+    },
+    {
+      "icon_id": "6700885",
+      "name": "搜索--1",
+      "font_class": "search",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "7589858",
+      "name": "删  除",
+      "font_class": "shanchu1",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    }
+  ]
+}
