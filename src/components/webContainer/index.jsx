@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Modal from '../../components/Modal'
+import Button from '../../components/Button'
 import './index.scss'
 
 class WebContainer extends Component {
@@ -8,9 +9,12 @@ class WebContainer extends Component {
     this.state = {
       currentType: {},
       setting: false,
-      visible: true,
+      visible: false,
       addCategory: '',
-      current: '11'
+      settingStatus: '',
+      siteName: '',
+      siteURL: '',
+      showIcon: false
     }
   }
 
@@ -26,20 +30,74 @@ class WebContainer extends Component {
     })
 
   }
-
-  addSites = () => {
-    this.setState({
-      visible: true
-    })
-  }
   cancel = () => {
     this.setState({
       visible: false
     })
   }
+
+  saveCategory = () => {
+
+
+
+  }
+
+
+  openModal = () => {
+    const settingStatus = this.state.settingStatus
+    if (settingStatus === '1') {
+      return (
+        <Modal
+          visible={this.state.visible}
+          title='添加分类'
+          cancel={this.cancel}
+          footer={[
+            <Button key={1} type='cancel' onClick={this.cancel}>取消</Button>,
+            <Button key={0} type='normal' onClick={() => this.saveCategory()}>确定</Button>
+          ]}
+        >
+          <span className='input-name'>分类名称:</span>
+          <input className='input' type="text" value={this.state.addCategory}
+            onChange={(e) => this.setState({
+              addCategory: e.target.value
+            })} />
+        </Modal>
+      )
+    }
+    else if (settingStatus === '2') {
+      return (
+        <Modal
+          visible={this.state.visible}
+          title='添加网址'
+          cancel={this.cancel}
+          footer={[
+            <Button key={1} type='cancel' onClick={this.cancel}>取消</Button>,
+            <Button key={0} type='normal' onClick={() => this.saveSite()}>确定</Button>
+          ]}
+        >
+          <div style={{ marginBottom: '20px' }}>
+            <span className='input-name'>网站名称:</span>
+            <input className='input' type="text" value={this.state.addCategory}
+              onChange={(e) => this.setState({
+                addCategory: e.target.value
+              })} />
+          </div>
+          <div>
+            <span className='input-name'>网站地址:</span>
+            <input className='input' type="text" value={this.state.addCategory}
+              onChange={(e) => this.setState({
+                addCategory: e.target.value
+              })} />
+          </div>
+        </Modal>
+      )
+    }
+  }
+
+
   render() {
     const { websiteTitle, websites } = this.props.item
-    const { currentType, setting, visible } = this.state
+    const { currentType, setting, showIcon } = this.state
     return (
       <div className='web-container'>
         <div>
@@ -50,7 +108,9 @@ class WebContainer extends Component {
                 websites.map((item) => {
                   return (
                     <span className='site' key={item.id} onClick={() => this.changeType(item)}>
-                      {item.typeName}
+                      {showIcon && <span className='iconfont icon-clear' ></span>}
+                      <span style={{ margin: '0 5px' }}>{item.typeName}</span>
+                      {showIcon && <span className='iconfont icon-search' ></span>}
                     </span>
                   )
                 })
@@ -60,13 +120,28 @@ class WebContainer extends Component {
               {
                 setting ?
                   <div>
-                    <span onClick={() => this.addSites()}>添加分类</span>
-                    <span>添加网址</span>
-                    <span>修改</span>
+                    <span onClick={() => {
+                      this.setState({
+                        settingStatus: '1',
+                        visible: true
+                      })
+                    }}>添加分类</span>
+                    <span onClick={() => {
+                      this.setState({
+                        settingStatus: '2',
+                        visible: true
+                      })
+                    }}>添加网址</span>
+                    <span onClick={() => {
+                      this.setState({
+                        showIcon: !showIcon
+                      })
+                    }}>修改</span>
                     <span>排序</span>
                     <span onClick={() => {
                       this.setState({
-                        setting: false
+                        setting: false,
+                        showIcon:false
                       })
                     }}>完成</span>
                   </div>
@@ -87,25 +162,18 @@ class WebContainer extends Component {
             currentType.webs && currentType.webs.map((item) => {
               return (
                 <div className='site-name' key={item.site}>
-                  <a href={item.site} target='_blank' rel="noopener noreferrer">{item.siteName}</a>
+                  {showIcon && <span className='iconfont icon-clear' ></span>}
+                  <a style={{margin:'0 5px'}} href={item.site} target='_blank' rel="noopener noreferrer">{item.siteName}</a>
+                  {showIcon && <span className='iconfont icon-search' ></span>}
                 </div>
               )
             })
           }
         </div>
-        <Modal
-          visible={visible}
-          title='添加分类'
-          cancel={this.cancel}
-          footer={[
-            <button key={0}>确定</button>,
-            <button key={1} onClick={() => this.cancel()}>取消</button>
-          ]}
-        >
-          <span>分类名称</span>
-          <input type="text" value={this.state.addCategory} onChange={(e) => this.setState({
-          addCategory: e.target.value
-        })} /></Modal>
+        {
+          this.openModal()
+        }
+
       </div>
 
     )

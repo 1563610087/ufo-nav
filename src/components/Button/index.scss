@@ -1,0 +1,22 @@
+.button {
+  height: 30px;
+  width: 60px;
+  line-height: 30px;
+  text-align: center;
+  border:1px solid;
+  cursor: pointer;
+  margin: 0 10px;
+  
+}
+
+.normal {
+  background-color: rgba(66,133,244,.1);
+  border-color: rgba(66,133,244,.4);
+  color: #4285f4;
+}
+
+.cancel {
+  background-color: rgba(244,65,65,.1);
+  border-color: rgba(244,65,65,.4);
+  color: #f44141;
+}

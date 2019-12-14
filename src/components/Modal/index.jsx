@@ -15,21 +15,27 @@ class Modal extends Component {
       <Fragment>
         {
           visible &&
-          <div className='modal'>
-            <div className='title'>{title}</div>
-            <div className='content'>
-              {
-                this.props.children
-              }
-            </div>
-            <div className='bottom'>
-              {
-                footer.map((item) => {
-                  return item
-                })
-              }
+          <div className='background'>
+            <div className='modal'>
+              <div className='title'>
+                <span>{title}</span>
+                <span className='close' onClick={()=>this.props.cancel()}>×</span>
+              </div>
+              <div className='content'>
+                {
+                  this.props.children
+                }
+              </div>
+              <div className='bottom'>
+                {
+                  footer.map((item) => {
+                    return item
+                  })
+                }
+              </div>
             </div>
           </div>
+
         }
       </Fragment>
     )
