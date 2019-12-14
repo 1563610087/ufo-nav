@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './index.scss'
 
-class Footer extends Component {
+class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -11,13 +11,13 @@ class Footer extends Component {
 
   render() {
     return (
-      <footer className='footer'>    
-          hah
-      </footer >
+      <div>
+        
+      </div>
     )
   }
 
 }
 
-export default Footer
+export default Login
 

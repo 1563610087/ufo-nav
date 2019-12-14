@@ -13,42 +13,68 @@ class App extends React.Component {
         searchList: [
           {
             searchName: '百度搜索',
-            website: 'baidu.com',
+            website: 'http://www.baidu.com/s?wd=',
             iconName: 'baidu'
           },
           {
             searchName: '谷歌搜索',
-            website: 'google.com',
+            website: 'http://www.google.com/#q=',
             iconName: 'google'
+          },
+          {
+            searchName: '必应搜索',
+            website: 'http://cn.bing.com/search?q=',
+            iconName: 'biying'
+          },
+          {
+            searchName: '公众号',
+            website: 'http://weixin.sogou.com/weixin?type=2&query=',
+            iconName: 'gongzonghao'
+          },
+          {
+            searchName: '知乎',
+            website: 'https://www.zhihu.com/search?type=content&q=',
+            iconName: 'zhihu'
+          },
+          {
+            searchName: '微博',
+            website: 'http://s.weibo.com/weibo/',
+            iconName: 'weibo'
           }
         ]
       },
       searchEngine: {
         searchName: '百度搜索',
-        website: 'baidu.com',
+        website: 'http://www.baidu.com/s?wd=',
         iconName: 'baidu'
       },
-      inputValue: '',
-      currentIndex:'1'
+      keyWord: '',
+      currentIndex: '1'
     }
   }
 
   chooseType = (value) => {
     this.setState({
       searchType: value,
-      searchEngine:value.searchList[0]
+      searchEngine: value.searchList[0]
     })
   }
 
   chooseEngine = (value) => {
     this.setState({
-    searchEngine:value
-  })
-}
+      searchEngine: value
+    })
+  }
+
+  search = () => {
+    const { keyWord, searchEngine } = this.state
+    window.open(`${searchEngine.website}${keyWord}`)
+
+  }
 
   render() {
-    const { searchName,iconName} = this.state.searchEngine
-    const {searchList,colorType} = this.state.searchType
+    const { searchName, iconName } = this.state.searchEngine
+    const { searchList, colorType } = this.state.searchType
     return (
       <div className='search-container'>
         <div className='left'>
@@ -69,20 +95,20 @@ class App extends React.Component {
           <div className='r-input'>
             <input type="text"
               className={colorType}
-              value={this.state.inputValue}
+              value={this.state.keyWord}
               placeholder='请输入要查找的资源名'
-              onChange={(e)=>this.setState({
-                inputValue: e.target.value
+              onChange={(e) => this.setState({
+                keyWord: e.target.value
               })}
             />
-            <span className='iconfont icon-search' ></span>
-            <i className='iconfont icon-clear clear' onClick={()=>this.setState({inputValue:''})}></i>
+            <span className='iconfont icon-search' onClick={() => this.search()}></span>
+            <i className='iconfont icon-clear clear' onClick={() => this.setState({ keyWord: '' })}></i>
           </div>
           <div className='r-list'>
             {
               searchList.map((item, index) => {
                 return (
-                  <span onClick={()=>this.chooseEngine(item)} key={index}>{item.searchName}</span>
+                  <span onClick={() => this.chooseEngine(item)} key={index}>{item.searchName}</span>
                 )
               })
             }

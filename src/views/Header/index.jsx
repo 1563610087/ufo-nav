@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Login from '../../components/Login'
 import './header.scss'
 
 class Header extends Component {
@@ -12,7 +13,12 @@ class Header extends Component {
   render() {
     return (
       <header className='header'>
-        fgfdgfd 
+        <div>
+          ahh
+        </div>
+        <div className='h-right'>
+          <Login></Login>
+        </div>
       </header>
     )
   }
