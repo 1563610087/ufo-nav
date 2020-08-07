@@ -1,3 +1,3 @@
 import axios from 'axios'
 
-export const checkDetail = (data) => axios.get('http://localhost:3000/check/detail', { params: data })
+export const allSites = (data) => axios.get('https://mock.yonyoucloud.com/mock/14285/data/allSites', { params: data })

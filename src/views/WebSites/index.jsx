@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { websiteList } from '../../common/js/website'
 import WebContainer from '../../components/webContainer'
+import { allSites } from '../../api/api'
 import './index.scss'
 
 class WebSites extends Component {
@@ -11,13 +12,20 @@ class WebSites extends Component {
     }
   }
 
+  componentDidMount() {
+    allSites({
+      id: 1
+    })
+
+  }
+
   render() {
     return (
       <div className='websites'>
         {
           websiteList.map((item) => {
             return (
-                <WebContainer key={item.id} item={item}/>
+              <WebContainer key={item.id} item={item} />
             )
           })
         }

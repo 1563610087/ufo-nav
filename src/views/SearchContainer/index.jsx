@@ -7,6 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      //这里是默认的网页搜索，是否可以直接读取searchCategory的第一个数据？
       searchType: {
         type: '网页',
         colorType: 'color-type1',
@@ -72,11 +73,17 @@ class App extends React.Component {
 
   }
 
+  enterSearch = (e) => {
+    if (e.keyCode === 13) {
+      this.search()
+    }
+  }
+
   render() {
     const { searchName, iconName } = this.state.searchEngine
     const { searchList, colorType } = this.state.searchType
     return (
-      <div className='search-container'>
+      <div className='search-container' onKeyDown={(e) => { this.enterSearch(e) }}>
         <div className='left'>
           {
             searchCategory.map((item, index) => {

@@ -38,7 +38,7 @@ export const websiteList = [
     websiteTitle: '电影',
     websites: [
       {
-        id:13,
+        id:21,
         typeName: '视频教程',
         webs: [
           {

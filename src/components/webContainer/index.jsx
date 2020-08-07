@@ -30,9 +30,11 @@ class WebContainer extends Component {
     })
 
   }
+
   cancel = () => {
     this.setState({
-      visible: false
+      visible: false,
+      addCategory: ''
     })
   }
 
@@ -141,7 +143,7 @@ class WebContainer extends Component {
                     <span onClick={() => {
                       this.setState({
                         setting: false,
-                        showIcon:false
+                        showIcon: false
                       })
                     }}>完成</span>
                   </div>
@@ -163,7 +165,7 @@ class WebContainer extends Component {
               return (
                 <div className='site-name' key={item.site}>
                   {showIcon && <span className='iconfont icon-clear' ></span>}
-                  <a style={{margin:'0 5px'}} href={item.site} target='_blank' rel="noopener noreferrer">{item.siteName}</a>
+                  <a style={{ margin: '0 5px' }} href={item.site} target='_blank' rel="noopener noreferrer">{item.siteName}</a>
                   {showIcon && <span className='iconfont icon-search' ></span>}
                 </div>
               )

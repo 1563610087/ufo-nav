@@ -46,6 +46,7 @@
         border: 1px solid;
         border-left: 0;
         font-size: 26px;
+        cursor: pointer;
       }
       span:before {
         position: absolute;
@@ -78,7 +79,7 @@
   .search-name {
     font-size: 30px;
   }
-
+//代码优化点
   .color-type1 {
     color: $color-type1;
     border:1px solid $color-type1 !important;
@@ -86,6 +87,22 @@
   .color-type2 {
     color: $color-type2;
     border:1px solid $color-type2 !important;
+  }
+  .color-type3 {
+    color: $color-type3;
+    border:1px solid $color-type3 !important;
+  }
+  .color-type4 {
+    color: $color-type4;
+    border:1px solid $color-type4 !important;
+  }
+  .color-type5 {
+    color: $color-type5;
+    border:1px solid $color-type5 !important;
+  }
+  .color-type6 {
+    color: $color-type6;
+    border:1px solid $color-type6 !important;
   }
   // @for $i from 1 to 8 {
   //   .color-type#{$i} {

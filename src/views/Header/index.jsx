@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Login from '../../components/Login'
+// import Login from '../../components/Login'
 import './header.scss'
 
 class Header extends Component {
@@ -16,9 +16,9 @@ class Header extends Component {
         <div>
           ahh
         </div>
-        <div className='h-right'>
-          <Login></Login>
-        </div>
+        {/* <div className='h-right'>
+          <Login/>
+        </div> */}
       </header>
     )
   }

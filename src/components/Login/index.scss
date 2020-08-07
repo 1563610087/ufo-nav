@@ -1,0 +1,78 @@
+.login {
+  width: 300px;
+  background: white;
+  padding: 25px;
+  font-size: 14px;
+
+  .top {
+    margin-bottom: 24px;
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .close {
+    float: right;
+    font-size: 20px;
+  }
+
+  .input {
+    width: 278px;
+    padding: 10px;
+    border: 1px solid #afadad;
+    margin-bottom: 20px;
+  }
+
+  .forget {
+    float: right;
+    text-decoration: none;
+    color: #00a1d6;
+  }
+
+  .btn {
+    height: 40px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #007fff;
+  }
+
+  .login-bottom {
+    color: #007fff;
+    cursor: pointer;
+  }
+
+  .other-login {
+    float: right;
+  }
+}
+
+.register {
+  @extend .login ;
+  
+  .word-color {
+    color: #007fff;
+  }
+  .r-login {
+    text-align: center;
+  }
+
+  .item {
+    margin-bottom: 10px;
+  }
+
+  label {
+    display: inline-block;
+    width: 72px;
+    text-align: right;
+  }
+
+  input {
+    @extend .input;
+    width:200px;
+  }
+}
